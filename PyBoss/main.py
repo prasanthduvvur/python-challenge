@@ -63,7 +63,7 @@ def stateabbrev (statename):
 new_employee_dict = []
 name = []
 
-with open("employee_data2.csv",newline='') as csvfile:
+with open("employee_data1.csv",newline='') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         emp_id = row['Emp ID']
@@ -90,8 +90,8 @@ with open("employee_data2.csv",newline='') as csvfile:
 #print(new_employee_dict)
 
 #write updated data to csv vile
-with open("new_employee_data2.csv", "w") as csvfile:
+with open("new_employee_data1.csv", "w") as csvfile:
     field_names = ["Emp ID", "First Name", "Last Name", "DOB", "SSN", "State Abbrev"]
-    writer = csv.DictWriter(csvfile, fieldnames=field_names)
+    writer = csv.DictWriter(csvfile, fieldnames=field_names,lineterminator='\n')
     writer.writeheader()
     writer.writerows(new_employee_dict)
